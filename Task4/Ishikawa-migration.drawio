@@ -1,0 +1,79 @@
+<mxfile host="app.diagrams.net" version="24.7.11">
+  <diagram name="Диаграмма Исикавы — узкие места миграции" id="ishikawa">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="spine" style="html=1;endArrow=block;strokeWidth=3;strokeColor=#000000;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="150" y="430" as="sourcePoint" />
+            <mxPoint x="1150" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="head" value="Узкие места при миграции&#10;«Медикаменте» на микросервисную&#10;архитектуру (риск снижения&#10;производительности и надёжности)" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1150" y="380" width="280" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="bone1" style="html=1;endArrow=none;strokeWidth=2;strokeColor=#000000;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="0" y="210" as="sourcePoint" />
+            <mxPoint x="250" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cat1" value="Инфраструктура" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#000000;fontSize=13;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="0" y="180" width="220" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="txt1" value="• Единый физический сервер —&#10;  точка отказа, не выдержит рост x5&#10;• Нет кластера/оркестрации (K8s)&#10;  для микросервисов&#10;• Сеть спроектирована под монолит,&#10;  а не под сервис-сегментацию" style="text;html=1;align=left;verticalAlign=top;fontSize=11;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="0" y="40" width="240" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="bone3" style="html=1;endArrow=none;strokeWidth=2;strokeColor=#000000;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="210" as="sourcePoint" />
+            <mxPoint x="650" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cat3" value="Интеграция" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#000000;fontSize=13;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="400" y="180" width="220" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="txt3" value="• ККМ ↔ 1С — проприетарный&#10;  OLE/TCP-IP без готового моста&#10;• Лаборатория не интегрирована&#10;  по API (ручной ввод)&#10;• Нет шины сообщений (message&#10;  broker) для асинхронного обмена" style="text;html=1;align=left;verticalAlign=top;fontSize=11;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="400" y="40" width="240" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="bone5" style="html=1;endArrow=none;strokeWidth=2;strokeColor=#000000;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="800" y="210" as="sourcePoint" />
+            <mxPoint x="1050" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cat5" value="Процессы" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#000000;fontSize=13;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="800" y="180" width="220" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="txt5" value="• Нет CI/CD — деплой вручную,&#10;  не масштабируется на десятки&#10;  сервисов&#10;• Нет контроля качества данных&#10;  при миграции (дубли, форматы)&#10;• Нет отработанного плана&#10;  резервного копирования/отката" style="text;html=1;align=left;verticalAlign=top;fontSize=11;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="800" y="40" width="240" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="bone2" style="html=1;endArrow=none;strokeWidth=2;strokeColor=#000000;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="200" y="650" as="sourcePoint" />
+            <mxPoint x="450" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cat2" value="Программное обеспечение" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#000000;fontSize=13;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="200" y="620" width="220" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="txt2" value="• 1С работает в файловом режиме —&#10;  не поддерживает конкурентный&#10;  доступ множества сервисов&#10;• Данные пациентов в Excel/сканах&#10;  без единой схемы&#10;• Нет API у существующих систем —&#10;  интеграция «с нуля»&#10;• Бизнес-логика (расчёт стоимости,&#10;  налоговые правила) зашита внутри&#10;  конфигураций 1С, нигде отдельно&#10;  не задокументирована" style="text;html=1;align=left;verticalAlign=top;fontSize=11;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="200" y="690" width="260" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="bone4" style="html=1;endArrow=none;strokeWidth=2;strokeColor=#000000;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="600" y="650" as="sourcePoint" />
+            <mxPoint x="850" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cat4" value="Персонал" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#000000;fontSize=13;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="600" y="620" width="220" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="txt4" value="• Команда привыкла к 1С/Excel,&#10;  нет опыта с микросервисами&#10;• Единственный сетевой&#10;  администратор — bus factor = 1&#10;• Нет выделенной DevOps/SRE-роли" style="text;html=1;align=left;verticalAlign=top;fontSize=11;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="600" y="690" width="240" height="120" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

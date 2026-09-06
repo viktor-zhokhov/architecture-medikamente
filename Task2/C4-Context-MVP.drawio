@@ -1,0 +1,55 @@
+<mxfile host="app.diagrams.net" version="24.7.11">
+  <diagram name="C4 Context — целевая архитектура MVP" id="c4-context">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="pat" value="Пациент&#10;[Person]" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#08427b;strokeColor=#052e56;fontColor=#ffffff;fontSize=12;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="40" y="30" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="adm" value="Администратор (ресепшн)&#10;[Person]" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#08427b;strokeColor=#052e56;fontColor=#ffffff;fontSize=12;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="40" y="190" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="doc" value="Специалист (Доктор)&#10;[Person]" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#08427b;strokeColor=#052e56;fontColor=#ffffff;fontSize=12;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="40" y="350" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="portal" value="Медикаменте: Портал записи (MVP)&#10;[Software System]&#10;самостоятельная запись пациента,&#10;расписание для ресепшена и специалиста" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1168bd;strokeColor=#0b4884;fontColor=#ffffff;fontSize=12;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="380" y="170" width="260" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="consent" value="Сервис согласий и контроля доступа&#10;[Software System, новый]&#10;RBAC/ABAC, учёт согласий на&#10;обработку ПДн (Privacy by Design)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2b8f6e;strokeColor=#1c6b4f;fontColor=#ffffff;fontSize=12;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="740" y="30" width="300" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="protect" value="Пайплайн защиты и тегирования данных&#10;[Software System, новый]&#10;классификация, тегирование,&#10;шифрование, обезличивание" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2b8f6e;strokeColor=#1c6b4f;fontColor=#ffffff;fontSize=12;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="740" y="190" width="300" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="analytics" value="Аналитический слой (BI)&#10;[Software System, новый]&#10;работает только с обезличенными/&#10;тегированными данными" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2b8f6e;strokeColor=#1c6b4f;fontColor=#ffffff;fontSize=12;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1180" y="190" width="280" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="onec" value="1С: Бухгалтерия предприятия&#10;[Software System]&#10;существующая система, без изменений" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#999999;strokeColor=#6b6b6b;fontColor=#ffffff;fontSize=12;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="380" y="380" width="260" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" value="самостоятельная запись к специалисту&#10;(видит только свои данные)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;elbow=vertical;fontSize=10;" edge="1" parent="1" source="pat" target="portal">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="e2" value="управление расписанием,&#10;просмотр записей" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;elbow=vertical;fontSize=10;" edge="1" parent="1" source="adm" target="portal">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="e3" value="просмотр своих приёмов" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;elbow=vertical;fontSize=10;" edge="1" parent="1" source="doc" target="portal">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="e4" value="проверка прав доступа (RBAC/ABAC)&#10;и согласий на операцию с ПДн" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;elbow=vertical;fontSize=10;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="portal" target="consent">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="e5" value="передача данных пациента для&#10;тегирования, шифрования at rest" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;elbow=vertical;fontSize=10;" edge="1" parent="1" source="portal" target="protect">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="e6" value="обезличенные данные&#10;(без ФИО пациента)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;elbow=vertical;fontSize=10;" edge="1" parent="1" source="protect" target="analytics">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="e7" value="данные об оказанной услуге&#10;для выставления счёта" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;elbow=vertical;fontSize=10;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="portal" target="onec">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
