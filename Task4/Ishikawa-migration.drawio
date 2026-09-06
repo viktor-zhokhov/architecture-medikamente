@@ -58,8 +58,8 @@
         <mxCell id="cat2" value="Программное обеспечение" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#000000;fontSize=13;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
           <mxGeometry x="200" y="620" width="220" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="txt2" value="• 1С работает в файловом режиме —&#10;  не поддерживает конкурентный&#10;  доступ множества сервисов&#10;• Данные пациентов в Excel/сканах&#10;  без единой схемы&#10;• Нет API у существующих систем —&#10;  интеграция «с нуля»" style="text;html=1;align=left;verticalAlign=top;fontSize=11;whiteSpace=wrap;" vertex="1" parent="1">
-          <mxGeometry x="200" y="690" width="240" height="120" as="geometry" />
+        <mxCell id="txt2" value="• 1С работает в файловом режиме —&#10;  не поддерживает конкурентный&#10;  доступ множества сервисов&#10;• Данные пациентов в Excel/сканах&#10;  без единой схемы&#10;• Нет API у существующих систем —&#10;  интеграция «с нуля»&#10;• Бизнес-логика (расчёт стоимости,&#10;  налоговые правила) зашита внутри&#10;  конфигураций 1С, нигде отдельно&#10;  не задокументирована" style="text;html=1;align=left;verticalAlign=top;fontSize=11;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="200" y="690" width="260" height="160" as="geometry" />
         </mxCell>
         <mxCell id="bone4" style="html=1;endArrow=none;strokeWidth=2;strokeColor=#000000;" edge="1" parent="1">
           <mxGeometry relative="1" as="geometry">
